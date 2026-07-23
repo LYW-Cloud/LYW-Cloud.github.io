@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道依茨 - 专业发动机及配件供应商</title>
+    <meta name="description" content="道依茨动力机械专业供应工程机械、卡车、农业及船舶用发动机整机与配件，全球发货，原厂品质。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", "PingFang SC", Arial, sans-serif;
+        }
+        :root {
+            --main: #0f3460;
+            --gray: #222;
+            --light-gray: #f5f7fa;
+            --gold: #d4af37;
+        }
+
+        /* ===== 导航栏 ===== */
+        header {
+            background: var(--main);
+            color: #fff;
+            padding: 0 8%;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .nav-wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            flex-wrap: nowrap;
+            gap: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .logo small {
+            font-size: 12px;
+            font-weight: normal;
+            display: block;
+            color: var(--gold);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+            min-width: 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 6px 8px;
+            font-size: 15px;
+            transition: 0.3s;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: var(--gold);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .search-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+            padding: 4px 4px 4px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: 0.3s;
+            flex-shrink: 0;
+            height: 40px;
+            min-width: 160px;
+        }
+        .search-wrap:focus-within {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+        }
+        .search-wrap input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 14px;
+            padding: 6px 0;
+            width: 110px;
+            flex: 1;
+            min-width: 50px;
+        }
+        .search-wrap input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .search-wrap input:focus {
+            width: 150px;
+        }
+        .search-wrap button {
+            background: var(--gold);
+            border: none;
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+            white-space: nowrap;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .search-wrap button:hover {
+            opacity: 0.8;
+            transform: scale(0.95);
+        }
+
+        .banner {
+            height: 520px;
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('sy.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: #fff;
+        }
+        .banner-text h1 {
+            font-size: 44px;
+            margin-bottom: 16px;
+        }
+        .banner-text h1 small {
+            display: block;
+            font-size: 20px;
+            font-weight: normal;
+            color: var(--gold);
+        }
+        .banner-text p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        .btn {
+            padding: 14px 36px;
+            background: var(--gold);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-right: 20px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .title h2 {
+            font-size: 32px;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+        .title span {
+            display: inline-block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+        .title .sub {
+            display: block;
+            font-size: 14px;
+            color: #999;
+            font-weight: normal;
+            margin-top: 8px;
+        }
+
+        .advantage-box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .adv-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: #fff;
+            box-shadow: 0 2px 12px #eee;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .adv-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px #ddd;
+        }
+        .adv-item .adv-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f4ff;
+            flex-shrink: 0;
+        }
+        .adv-item .adv-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .adv-item h3 {
+            margin: 16px 0 10px;
+            color: var(--main);
+        }
+        .adv-item .en {
+            display: block;
+            font-size: 12px;
+            color: #aaa;
+            font-weight: normal;
+        }
+
+        .product-wrap {
+            background: var(--light-gray);
+        }
+        .product-box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .pro-card {
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 2px 12px #e2e2e2;
+            border-radius: 8px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .pro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px #ccc;
+        }
+        .pro-img {
+            height: 200px;
+            background: #e8edf5;
+            background-size: cover;
+            background-position: center;
+            background-color: #e8edf5;
+        }
+        .pro-text {
+            padding: 22px;
+        }
+        .pro-text h3 {
+            margin-bottom: 6px;
+            color: var(--gray);
+            font-size: 18px;
+        }
+        .pro-text .en {
+            font-size: 13px;
+            color: #999;
+        }
+        .pro-text p {
+            margin-top: 8px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .about-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: var(--main);
+        }
+        .about-text p {
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 16px;
+        }
+        .about-img {
+            width: 100%;
+            height: 360px;
+            background: #dce3ed;
+            background-image: url('cj.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border-radius: 8px;
+        }
+        .about-img .placeholder {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 24px;
+            border-radius: 4px;
+        }
+
+        .case-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .case-item {
+            height: 160px;
+            background: #dce3ed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #0f3460;
+            font-weight: bold;
+            border-radius: 8px;
+            background-image: url('sy/case-1.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: 0.3s;
+        }
+        .case-item:hover {
+            transform: scale(1.03);
+        }
+        .case-item .placeholder {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: var(--light-gray);
+            padding: 80px 8%;
+        }
+        .contact-info .title {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .info-item {
+            margin-bottom: 22px;
+        }
+        .info-item h4 {
+            color: var(--main);
+            margin-bottom: 6px;
+        }
+        .info-item p {
+            color: #555;
+        }
+        form input,
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 15px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        form input:focus,
+        form textarea:focus,
+        form select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        form button {
+            padding: 14px 40px;
+            background: var(--main);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        form button:hover {
+            background: var(--gold);
+            color: #000;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin-right: 16px;
+            color: var(--main);
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        footer {
+            background: var(--gray);
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+        }
+        footer .en {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(3px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-card {
+            background: #fff;
+            max-width: 720px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 40px 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            animation: fadeUp 0.25s ease;
+        }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .modal-card .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 22px;
+            font-size: 28px;
+            font-weight: 300;
+            cursor: pointer;
+            color: #888;
+            transition: 0.2s;
+            line-height: 1;
+        }
+        .modal-card .close-btn:hover {
+            color: #000;
+            transform: rotate(90deg);
+        }
+        .modal-card h2 {
+            color: var(--main);
+            margin-bottom: 6px;
+            font-size: 28px;
+        }
+        .modal-card .sub-title {
+            color: #888;
+            font-size: 15px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+        .modal-card .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+            margin: 20px 0 16px;
+        }
+        .modal-card .spec-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #eee;
+            padding: 6px 0;
+        }
+        .modal-card .spec-item .label {
+            color: #666;
+            font-weight: 500;
+        }
+        .modal-card .spec-item .value {
+            color: #222;
+            font-weight: 600;
+        }
+        .modal-card .desc {
+            background: #f8faff;
+            padding: 16px 18px;
+            border-radius: 8px;
+            margin: 16px 0 10px;
+            color: #333;
+            line-height: 1.7;
+            border-left: 4px solid var(--gold);
+        }
+        .modal-card .btn-inline {
+            background: var(--main);
+            color: #fff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: bold;
+            margin-top: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .modal-card .btn-inline:hover {
+            background: var(--gold);
+            color: #000;
+        }
+
+        @media (max-width: 900px) {
+            .nav-wrap {
+                height: auto;
+                padding: 12px 0;
+                flex-wrap: wrap;
+            }
+            nav a {
+                padding: 4px 10px;
+                font-size: 13px;
+            }
+            .search-wrap {
+                min-width: 140px;
+                height: 36px;
+            }
+            .search-wrap input {
+                width: 80px;
+            }
+            .search-wrap input:focus {
+                width: 120px;
+            }
+            .advantage-box,
+            .product-box,
+            .case-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-wrap,
+            .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+            .banner-text h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .nav-wrap {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 10px 0;
+            }
+            .logo {
+                font-size: 20px;
+                flex: 0 0 auto;
+            }
+            .logo small {
+                font-size: 10px;
+            }
+            nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                gap: 2px;
+            }
+            nav a {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+            .search-wrap {
+                order: 2;
+                flex: 1;
+                min-width: 120px;
+                max-width: 200px;
+                height: 34px;
+                padding: 3px 3px 3px 12px;
+                margin-left: auto;
+            }
+            .search-wrap input {
+                width: 60px;
+                font-size: 12px;
+                min-width: 30px;
+            }
+            .search-wrap input:focus {
+                width: 80px;
+            }
+            .search-wrap button {
+                font-size: 11px;
+                padding: 4px 10px;
+                height: 26px;
+            }
+            .banner {
+                height: 400px;
+            }
+            .banner-text h1 {
+                font-size: 24px;
+            }
+            .btn {
+                display: block;
+                margin-bottom: 12px;
+                text-align: center;
+                margin-right: 0;
+            }
+            section {
+                padding: 40px 5%;
+            }
+            .contact-wrap {
+                padding: 40px 5%;
+            }
+            .advantage-box,
+            .product-box,
+            .case-list {
+                grid-template-columns: 1fr;
+            }
+            .modal-card {
+                padding: 30px 18px;
+            }
+            .modal-card .spec-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-wrap">
+            <div class="logo">
+               大连道依茨动力机械有限公司
+                <small>发动机及配件供应商</small>
+            </div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="models.html">全部型号</a>
+                <a href="#about">关于我们</a>
+                <a href="#case">合作案例</a>
+                <a href="#contact">联系我们</a>
+            </nav>
+            <form class="search-wrap" action="search.html" method="get">
+                <input type="text" name="q" placeholder="搜索型号..." />
+                <button type="submit">搜索</button>
+            </form>
+        </div>
+    </header>
+
+    <section id="home" class="banner">
+        <div class="banner-text">
+            <h1>
+                专业发动机及配件
+                <small>原厂品质 · 现货供应 · 全球发货</small>
+            </h1>
+            <p>专注工程机械、卡车、农业机械及船舶发动机整机与配件一站式供应，提供免费技术支持与机型匹配服务。</p>
+            <div>
+                <a href="#contact" class="btn">立即询价 →</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="title">
+            <h2>服务齐全</h2>
+            <span></span>
+            <span class="sub">Why Choose Us</span>
+        </div>
+        <div class="advantage-box">
+            <div class="adv-item">
+                <div class="adv-icon">
+                    <img src="sy/adv-range.jpg" alt="品类齐全">
+                </div>
+                <h3>品类齐全 <span class="en">Full Range</span></h3>
+                <p>发动机整机、缸体、曲轴、活塞、大修包等上千种配件一站式采购</p>
+            </div>
+            <div class="adv-item">
+                <div class="adv-icon">
+                    <img src="sy/adv-quality.jpg" alt="品质稳定">
+                </div>
+                <h3>品质稳定 <span class="en">OEM Quality</span></h3>
+                <p>严格质检，高精度适配，耐磨耐用，故障率低，可直接装机</p>
+            </div>
+            <div class="adv-item">
+                <div class="adv-icon">
+                    <img src="sy/adv-stock.jpg" alt="现货储备">
+                </div>
+                <h3>现货储备 <span class="en">In-Stock</span></h3>
+                <p>大型仓储常年备货，无需长时间等待，当天即可安排发货</p>
+            </div>
+            <div class="adv-item">
+                <div class="adv-icon">
+                    <img src="sy/adv-support.jpg" alt="售后保障">
+                </div>
+                <h3>售后保障 <span class="en">Tech Support</span></h3>
+                <p>专业技术团队，机型匹配指导，装机问题全程答疑</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 型号中心 ===== -->
+    <section id="product" class="product-wrap">
+        <div class="title">
+            <h2>发动机型号中心</h2>
+            <span></span>
+            <span class="sub">点击卡片查看详细配置</span>
+        </div>
+        <div class="product-box" id="engineGrid">
+        </div>
+        <p style="text-align:center;margin-top:40px;color:#666;font-size:15px;">👆 点击任意型号，查看完整技术参数与适用领域</p>
+        <div style="text-align:center;margin-top:30px;">
+            <a href="models.html" class="btn" style="background:var(--main);color:#fff;border-radius:30px;padding:14px 50px;">
+                查看更多型号 →
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== 配件中心 ===== -->
+    <section id="parts" class="product-wrap">
+        <div class="title">
+            <h2>配件中心</h2>
+            <span></span>
+            <span class="sub">原厂品质 · 型号齐全 · 现货供应</span>
+        </div>
+        <div class="product-box" id="partsGrid">
+        </div>
+        <p style="text-align:center;margin-top:30px;color:#888;font-size:14px;">📞 如需批量采购或特殊型号，请联系我们获取报价</p>
+    </section>
+
+    <!-- ===== 关于我们 ===== -->
+    <section id="about">
+        <div class="title"><h2>关于我们</h2><span></span><span class="sub">About Us</span></div>
+        <div class="about-wrap">
+            <div class="about-text">
+                <h3>道依茨</h3>
+                <p>我司深耕发动机动力配件行业多年，专注工程机械、商用卡车、农业机械、船舶发电机组整机与零部件销售。集采购、仓储、批发、配送、技术售后一体化服务。</p>
+                <p>拥有完善供应链与大型仓储，上千种配件常年现货，严格品控筛选，杜绝劣质配件。服务全国修理厂、工程施工企业、物流车队、设备制造厂商，支持批量长期供货，可提供机型匹配、安装技术指导。</p>
+                <p><strong>经营理念：</strong>诚信经营 · 品质为本 · 快速交付 · 合作共赢</p>
+            </div>
+            <div class="about-img" style="background-image: url('cj.jpg');">
+                <div class="placeholder">📷 厂房/仓库实拍</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 合作案例 ===== -->
+    <section id="case" class="product-wrap">
+        <div class="title"><h2>售后有保障</h2><span></span><span class="sub">Our Partners</span></div>
+        <div class="case-list">
+            <div class="case-item" style="background-image: url('sy/case-construction.jpg');"><div class="placeholder">🚧 工程维修配套</div></div>
+            <div class="case-item" style="background-image: url('sy/case-logistics.jpg');"><div class="placeholder">🚛 物流车队批量供货</div></div>
+            <div class="case-item" style="background-image: url('sy/case-repair.jpg');"><div class="placeholder">🔧 修理厂定点供货</div></div>
+            <div class="case-item" style="background-image: url('sy/case-agriculture.jpg');"><div class="placeholder">🌾 农机设备整机配套</div></div>
+        </div>
+        <p style="text-align:center;margin-top:30px;color:#555;">多年来为基建、运输、农业、船舶行业提供稳定动力配件配套服务，长期合作客户上千家</p>
+    </section>
+
+    <!-- ===== 联系我们 ===== -->
+    <section id="contact" class="contact-wrap">
+        <div class="contact-info">
+            <div class="title" style="text-align:left;margin-bottom:30px;"><h2>联系我们</h2><span></span><span class="sub">Contact Us</span></div>
+            <div class="info-item"><h4>📍 公司地址</h4><p>中国辽宁省大连市大连道依茨动力机械有限公司</p></div>
+            <div class="info-item"><h4>📞 咨询电话 / WhatsApp</h4><p>+86 13500723439</p></div>
+            <div class="info-item"><h4>🕐 营业时间</h4><p>周一至周六 8:00-18:00（北京时间），全天在线询价</p></div>
+            <div class="info-item"><h4>📦 主营范围</h4><p>发动机整机、全系列配件批发零售、批量配套、全国物流发货</p></div>
+            <div class="social-links"><a href="#">📘 微信</a><a href="#">📺 抖音</a><a href="#">💼 阿里巴巴</a></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 大连道依茨动力机械有限公司 版权所有</p>
+        <span class="en">专业发动机及配件供应商</span>
+    </footer>
+
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal-card">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h2 id="modalTitle">发动机型号</h2>
+            <div class="sub-title" id="modalSub">系列 / 类型</div>
+            <div class="spec-grid" id="modalSpecs"></div>
+            <div class="desc" id="modalDesc">详细描述信息</div>
+            <button class="btn-inline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); document.getElementById('detailModal').classList.remove('active');">立即询价 →</button>
+        </div>
+    </div>
+
+    <script src="engine-data.js"></script>
+    <script>
+        (function() {
+            // ===== 型号中心（只取前 8 个） =====
+            const data = typeof engineData !== 'undefined' ? engineData.slice(0, 8) : [];
+
+            const grid = document.getElementById('engineGrid');
+            data.forEach(eng => {
+                const card = document.createElement('div');
+                card.className = 'pro-card';
+                card.addEventListener('click', function() {
+                    openModal(eng);
+                });
+                const imgUrl = eng.img || 'deutz-engine.jpg';
+                card.innerHTML = `
+                    <div class="pro-img" style="background-image: url('${imgUrl}');"></div>
+                    <div class="pro-text">
+                        <h3>${eng.name} <span class="en">${eng.series}</span></h3>
+                        <p>${Object.values(eng.spec).slice(0,2).join(' · ')}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // ===== 配件数据 =====
+            const partsData = [
+                {
+                    name: '缸体',
+                    series: '发动机机体',
+                    img: 'engineimage/parts-block.jpg',
+                    desc: '道依茨原厂缸体，高强度铸铁材质，精密加工，适配全系列机型。'
+                },
+                {
+                    name: '曲轴',
+                    series: '发动机核心部件',
+                    img: 'engineimage/parts-crankshaft.jpg',
+                    desc: '道依茨原厂曲轴，高强度合金钢锻造，动平衡精准，耐久可靠。'
+                },
+                {
+                    name: '活塞',
+                    series: '活塞及活塞环',
+                    img: 'engineimage/parts-piston.jpg',
+                    desc: '道依茨原厂活塞，铝合金材质，耐高温，耐磨性强，可配套活塞环。'
+                },
+                {
+                    name: '大修包',
+                    series: '发动机大修套装',
+                    img: 'engineimage/parts-overhaul.jpg',
+                    desc: '道依茨原厂大修包，包含全车垫片、油封、密封圈等全套大修零件。'
+                },
+                {
+                    name: '缸盖总成',
+                    series: '气缸盖',
+                    img: 'engineimage/parts-cylinderhead.jpg',
+                    desc: '道依茨原厂缸盖总成，包含气门、弹簧、导管，精密装配，直接装机。'
+                },
+                {
+                    name: '喷油器',
+                    series: '燃油系统',
+                    img: 'engineimage/parts-injector.jpg',
+                    desc: '道依茨原厂喷油器，精密雾化，燃烧充分，节能环保。'
+                },
+                {
+                    name: '增压器',
+                    series: '涡轮增压系统',
+                    img: 'engineimage/parts-turbo.jpg',
+                    desc: '道依茨原厂增压器，高效率涡轮，响应迅速，提升动力输出。'
+                },
+                {
+                    name: '水泵',
+                    series: '冷却系统',
+                    img: 'engineimage/parts-waterpump.jpg',
+                    desc: '道依茨原厂水泵，高效冷却，耐用可靠，保障发动机正常运转。'
+                }
+            ];
+
+            // ===== 渲染配件卡片 =====
+            const partsGrid = document.getElementById('partsGrid');
+            partsData.forEach(part => {
+                const card = document.createElement('div');
+                card.className = 'pro-card';
+                const imgUrl = part.img || 'engineimage/parts-default.jpg';
+                card.innerHTML = `
+                    <div class="pro-img" style="background-image: url('${imgUrl}');"></div>
+                    <div class="pro-text">
+                        <h3>${part.name} <span class="en">${part.series}</span></h3>
+                        <p>${part.desc}</p>
+                    </div>
+                `;
+                partsGrid.appendChild(card);
+            });
+
+            // ===== 弹窗逻辑（型号用） =====
+            const modal = document.getElementById('detailModal');
+            const closeBtn = document.getElementById('closeModalBtn');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalSub = document.getElementById('modalSub');
+            const modalSpecs = document.getElementById('modalSpecs');
+            const modalDesc = document.getElementById('modalDesc');
+
+            function openModal(eng) {
+                modalTitle.textContent = eng.name;
+                modalSub.textContent = eng.series;
+                let specHtml = '';
+                for (const [key, value] of Object.entries(eng.spec)) {
+                    specHtml += `<div class="spec-item"><span class="label">${key}</span><span class="value">${value}</span></div>`;
+                }
+                modalSpecs.innerHTML = specHtml;
+                modalDesc.textContent = eng.desc;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
+
+        })();
+    </script>
+</body>
+</html>
